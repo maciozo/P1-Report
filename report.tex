@@ -26,6 +26,9 @@
 \usepackage[titletoc,toc,title]{appendix}
 \usepackage{pgfplots}
 \usepackage{subfiles}
+\usepackage{subfig}
+
+\pgfplotsset{compat=1.13}
 
 \graphicspath{ {./images/} }
 
@@ -42,8 +45,6 @@
 \begin{abstract}
 I really hope I don't forget to go back to this at the end...
 \end{abstract}
-
-\tableofcontents
 
 \section{Aim}
 The aim of this set of experiments was to measure and analyse the Current-Voltage characteristics of a solar cell, as well as its performance, and how it varies in different conditions that may arise in the real world.
@@ -71,7 +72,10 @@ V_{OC} = \frac{nkT}{q}\ln{\left(\frac{I_L}{I_0} + 1\right)}
 
 \section{Results}
 \subsection{Baseline data}
-\begin{figure}
+
+This was the simple experiment that involved measuring the voltage across a varying resistance. The light source was fixed at \SI{10}{\centi\metre}, and the cell was kept at a temperature of \SI{25}{\celsius}.
+
+\begin{figure}[h]
 \begin{tikzpicture}
     \begin{axis}[
         width = \textwidth,
@@ -84,7 +88,74 @@ V_{OC} = \frac{nkT}{q}\ln{\left(\frac{I_L}{I_0} + 1\right)}
     \end{axis}
 \end{tikzpicture}
 \label{plot:baseline}
-\caption{Scatter plot for the acquired baseline data, based on the data from Appendix~\ref{sec:baseline data}}
+\caption{Scatter plot for the acquired baseline data, based on the data from Appendix~\ref{dat:baseline}}
+\end{figure}
+
+\subsection{Varying light intensity}
+
+The above experiment was repeated, but at various light intensities. The intensity was varied by adjusting the distance between the light source and the solar cell.
+
+\begin{figure}[H]
+\centering
+    \subfloat[Subfigure 1 list of figures text][Light \SI{20}{\centi\metre} from cell.]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                width = 0.5\textwidth,
+                height = 0.3\textheight,
+                xlabel = {Voltage},
+                ylabel = {Current},
+                grid = both
+                ]
+                \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/distance20.csv};
+            \end{axis}
+        \end{tikzpicture}
+        \label{plot:d20}
+    }
+    \subfloat[Subfigure 1 list of figures text][Light \SI{30}{\centi\metre} from cell.]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                width = 0.5\textwidth,
+                height = 0.3\textheight,
+                xlabel = {Voltage},
+                ylabel = {Current},
+                grid = both
+                ]
+                \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/distance30.csv};
+            \end{axis}
+        \end{tikzpicture}
+        \label{plot:d30}
+    }
+    \qquad
+    \subfloat[Subfigure 1 list of figures text][Light \SI{40}{\centi\metre} from cell.]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                width = 0.5\textwidth,
+                height = 0.3\textheight,
+                xlabel = {Voltage},
+                ylabel = {Current},
+                grid = both
+                ]
+                \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/distance40.csv};
+            \end{axis}
+        \end{tikzpicture}
+        \label{plot:d40}
+    }
+    \subfloat[Subfigure 1 list of figures text][Light \SI{50}{\centi\metre} from cell.]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                width = 0.5\textwidth,
+                height = 0.3\textheight,
+                xlabel = {Voltage},
+                ylabel = {Current},
+                grid = both
+                ]
+                \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/distance50.csv};
+            \end{axis}
+        \end{tikzpicture}
+        \label{plot:d50}
+    }
+    \caption{This is a figure containing several subfigures.}
+    \label{fig:globfig}
 \end{figure}
 
 \section{Analysis}
@@ -99,11 +170,26 @@ V_{OC} = \frac{nkT}{q}\ln{\left(\frac{I_L}{I_0} + 1\right)}
 \begin{appendices}
     \label{appendix}
     \section{Baseline data}
-    \label{sec:baseline data}
+    \label{dat:baseline}
         \csvautotabular{./tables/baseline.csv}
+    
+    \section{Varying light intensity - \SI{20}{\centi\metre}}
+    \label{dat:d20}
+        \csvautotabular{./tables/distance20.csv}
+        
+    \section{Varying light intensity - \SI{30}{\centi\metre}}
+    \label{dat:d30}
+        \csvautotabular{./tables/distance30.csv}
+        
+    \section{Varying light intensity - \SI{40}{\centi\metre}}
+    \label{dat:d40}
+        \csvautotabular{./tables/distance40.csv}
+        
+    \section{Varying light intensity - \SI{50}{\centi\metre}}
+    \label{dat:d50}
+        \csvautotabular{./tables/distance50.csv}
 \end{appendices}
 
-\section{References}
 \bibliographystyle{IEEEtran}
 % IEEEabrv abbreviates journal titles in accordance to IEEE standards 
 \bibliography{mybib}
