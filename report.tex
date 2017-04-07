@@ -71,6 +71,7 @@ V_{OC} = \frac{nkT}{q}\ln{\left(\frac{I_L}{I_0} + 1\right)}
 
 \section{Results}
 \subsection{Baseline data}
+\begin{figure}
 \begin{tikzpicture}
     \begin{axis}[
         width = \textwidth,
@@ -82,6 +83,9 @@ V_{OC} = \frac{nkT}{q}\ln{\left(\frac{I_L}{I_0} + 1\right)}
         \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/baseline.csv};
     \end{axis}
 \end{tikzpicture}
+\label{plot:baseline}
+\caption{Scatter plot for the acquired baseline data, based on the data from Appendix~\ref{sec:baseline data}}
+\end{figure}
 
 \section{Analysis}
 
@@ -93,7 +97,9 @@ V_{OC} = \frac{nkT}{q}\ln{\left(\frac{I_L}{I_0} + 1\right)}
 
 
 \begin{appendices}
+    \label{appendix}
     \section{Baseline data}
+    \label{sec:baseline data}
         \csvautotabular{./tables/baseline.csv}
 \end{appendices}
 
