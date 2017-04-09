@@ -73,7 +73,7 @@ V_{OC} = \frac{nkT}{q}\ln{\left(\frac{I_L}{I_0} + 1\right)}
 \section{Results}
 \subsection{Baseline data}
 
-This was the simple experiment that involved measuring the voltage across a varying resistance. The light source was fixed at \SI{10}{\centi\metre}, and the cell was kept at a temperature of \SI{25}{\celsius}.
+This was the simple experiment that involved measuring the voltage across a varying resistance. The light source was fixed at \SI{10}{\centi\metre}, and the cell was kept at a temperature of \SI{20.5}{\celsius}.
 
 \begin{figure}[h]
 \begin{tikzpicture}
@@ -158,6 +158,11 @@ The above experiment was repeated, but at various light intensities. The intensi
     \label{fig:globfig}
 \end{figure}
 
+\subsection{Varying cell temperature}
+The baseline experiment repeated, but with the solar cell at various kept at various temperatures.
+
+
+
 \section{Analysis}
 
 
@@ -188,6 +193,22 @@ The above experiment was repeated, but at various light intensities. The intensi
     \section{Varying light intensity - \SI{50}{\centi\metre}}
     \label{dat:d50}
         \csvautotabular{./tables/distance50.csv}
+        
+    \section{Varying cell temperature - \SI{25}{\celsius}}
+    \label{dat:t25}
+        \csvautotabular{./tables/temperature25.csv}
+        
+    \section{Varying cell temperature - \SI{30}{\celsius}}
+    \label{dat:t30}
+        \csvautotabular{./tables/temperature30.csv}
+        
+    \section{Varying cell temperature - \SI{35}{\celsius}}
+    \label{dat:t35}
+        \csvautotabular{./tables/temperature35.csv}
+        
+    \section{Varying cell temperature - \SI{40}{\celsius}}
+    \label{dat:t40}
+        \csvautotabular{./tables/temperature40.csv}
 \end{appendices}
 
 \bibliographystyle{IEEEtran}
