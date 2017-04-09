@@ -84,7 +84,7 @@ This was the simple experiment that involved measuring the voltage across a vary
         ylabel = {Current},
         grid = both
         ]
-        \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/baseline.csv};
+        \addplot table[x = Voltage, y = Current, col sep = comma, mark = x]{./tables/baseline.csv};
     \end{axis}
 \end{tikzpicture}
 \label{plot:baseline}
@@ -155,13 +155,74 @@ The above experiment was repeated, but at various light intensities. The intensi
         \label{plot:d50}
     }
     \caption{Scatter plots for varying light intensity.}
-    \label{fig:globfig}
+    \label{fig:distances}
 \end{figure}
 
 \subsection{Varying cell temperature}
 The baseline experiment repeated, but with the solar cell at various kept at various temperatures.
 
-
+\begin{figure}[H]
+\centering
+    \subfloat[Subfigure 1 list of figures text][Cell at \SI{25}{\celsius} (Appendix~\ref{dat:t25}).]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                width = 0.5\textwidth,
+                height = 0.3\textheight,
+                xlabel = {Voltage},
+                ylabel = {Current},
+                grid = both
+                ]
+                \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/temperature25.csv};
+            \end{axis}
+        \end{tikzpicture}
+        \label{plot:t25}
+    }
+    \subfloat[Subfigure 1 list of figures text][Cell at \SI{30}{\celsius} (Appendix~\ref{dat:t30}).]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                width = 0.5\textwidth,
+                height = 0.3\textheight,
+                xlabel = {Voltage},
+                ylabel = {Current},
+                grid = both
+                ]
+                \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/temperature30.csv};
+            \end{axis}
+        \end{tikzpicture}
+        \label{plot:t30}
+    }
+    \qquad
+    \subfloat[Subfigure 1 list of figures text][Cell at \SI{35}{\celsius} (Appendix~\ref{dat:t35}).]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                width = 0.5\textwidth,
+                height = 0.3\textheight,
+                xlabel = {Voltage},
+                ylabel = {Current},
+                grid = both
+                ]
+                \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/temperature35.csv};
+            \end{axis}
+        \end{tikzpicture}
+        \label{plot:t35}
+    }
+    \subfloat[Subfigure 1 list of figures text][Cell at \SI{40}{\celsius} (Appendix~\ref{dat:t40}).]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                width = 0.5\textwidth,
+                height = 0.3\textheight,
+                xlabel = {Voltage},
+                ylabel = {Current},
+                grid = both
+                ]
+                \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/temperature40.csv};
+            \end{axis}
+        \end{tikzpicture}
+        \label{plot:t40}
+    }
+    \caption{Scatter plots for varying cell temperatures.}
+    \label{fig:temperatures}
+\end{figure}
 
 \section{Analysis}
 
