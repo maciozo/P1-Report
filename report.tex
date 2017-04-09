@@ -29,6 +29,8 @@
 \usepackage{subfig}
 
 \pgfplotsset{compat=1.13}
+\pgfplotsset{unit code/.code={\si{#1}}}
+\usepgfplotslibrary{units}
 
 \graphicspath{ {./images/} }
 
@@ -63,7 +65,7 @@ Three experiments were carried out to measure the IV characteristics of the sola
 
 The second experiment measured the output voltage of the solar cell at varying light intensities and series resistances. It was hypothesised that an increase in light intensity would increase the voltage across the cell. The intensity was varied by adjusting the distance between the light source and the cell.
 
-The third experiment measured the output voltage of the solar cell at varying temperatures. The hypothesis was that as the temperature of the cell was increased, its output voltage would decrease, as shown by equation~\ref{eq:V_OC}. Increasing the temperature, $T$, would decrease the bandgap energy of the semiconductor, and the intrinsic carrier concentration, $n_i$, which would increase the saturation current, $I_0$, decreasing the open circuit voltage, $V_{OC}$.
+The third experiment measured the output voltage of the solar cell at varying temperatures. The hypothesis was that as the temperature of the cell was increased, its output voltage would decrease, as shown by equation~\ref{eq:V_OC}. Increasing the temperature, $T$, would decrease the bandgap energy of the semiconductor, and the intrinsic carrier concentration, $n_{\textrm{i}}$, which would increase the saturation current, $I_0$, decreasing the open circuit voltage, $V_{\textrm{OC}}$.
 
 \begin{equation} \label{eq:V_OC}
 V_{OC} = \frac{nkT}{q}\ln{\left(\frac{I_L}{I_0} + 1\right)}
@@ -81,14 +83,16 @@ This was the simple experiment that involved measuring the voltage across a vary
         width = \textwidth,
         height = 0.4\textheight,
         xlabel = {Voltage},
-        ylabel = {Current},
+                x unit = \si{\volt},
+                ylabel = {Current},
+                y unit = \si{\ampere},
         grid = both
         ]
-        \addplot table[x = Voltage, y = Current, col sep = comma, mark = x]{./tables/baseline.csv};
+        \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/baseline.csv};
     \end{axis}
 \end{tikzpicture}
-\label{plot:baseline}
 \caption{Scatter plot for the acquired baseline data, based on the data from Appendix~\ref{dat:baseline}}
+\label{plot:baseline}
 \end{figure}
 
 \subsection{Varying light intensity}
@@ -103,7 +107,9 @@ The above experiment was repeated, but at various light intensities. The intensi
                 width = 0.5\textwidth,
                 height = 0.3\textheight,
                 xlabel = {Voltage},
+                x unit = \si{\volt},
                 ylabel = {Current},
+                y unit = \si{\ampere},
                 grid = both
                 ]
                 \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/distance20.csv};
@@ -117,7 +123,9 @@ The above experiment was repeated, but at various light intensities. The intensi
                 width = 0.5\textwidth,
                 height = 0.3\textheight,
                 xlabel = {Voltage},
+                x unit = \si{\volt},
                 ylabel = {Current},
+                y unit = \si{\ampere},
                 grid = both
                 ]
                 \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/distance30.csv};
@@ -132,7 +140,9 @@ The above experiment was repeated, but at various light intensities. The intensi
                 width = 0.5\textwidth,
                 height = 0.3\textheight,
                 xlabel = {Voltage},
+                x unit = \si{\volt},
                 ylabel = {Current},
+                y unit = \si{\ampere},
                 grid = both
                 ]
                 \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/distance40.csv};
@@ -146,7 +156,9 @@ The above experiment was repeated, but at various light intensities. The intensi
                 width = 0.5\textwidth,
                 height = 0.3\textheight,
                 xlabel = {Voltage},
+                x unit = \si{\volt},
                 ylabel = {Current},
+                y unit = \si{\ampere},
                 grid = both
                 ]
                 \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/distance50.csv};
@@ -169,7 +181,9 @@ The baseline experiment repeated, but with the solar cell at various kept at var
                 width = 0.5\textwidth,
                 height = 0.3\textheight,
                 xlabel = {Voltage},
+                x unit = \si{\volt},
                 ylabel = {Current},
+                y unit = \si{\ampere},
                 grid = both
                 ]
                 \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/temperature25.csv};
@@ -183,7 +197,9 @@ The baseline experiment repeated, but with the solar cell at various kept at var
                 width = 0.5\textwidth,
                 height = 0.3\textheight,
                 xlabel = {Voltage},
+                x unit = \si{\volt},
                 ylabel = {Current},
+                y unit = \si{\ampere},
                 grid = both
                 ]
                 \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/temperature30.csv};
@@ -198,7 +214,9 @@ The baseline experiment repeated, but with the solar cell at various kept at var
                 width = 0.5\textwidth,
                 height = 0.3\textheight,
                 xlabel = {Voltage},
+                x unit = \si{\volt},
                 ylabel = {Current},
+                y unit = \si{\ampere},
                 grid = both
                 ]
                 \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/temperature35.csv};
@@ -212,7 +230,9 @@ The baseline experiment repeated, but with the solar cell at various kept at var
                 width = 0.5\textwidth,
                 height = 0.3\textheight,
                 xlabel = {Voltage},
+                x unit = \si{\volt},
                 ylabel = {Current},
+                y unit = \si{\ampere},
                 grid = both
                 ]
                 \addplot table[x = Voltage, y = Current, col sep = comma]{./tables/temperature40.csv};
@@ -226,6 +246,17 @@ The baseline experiment repeated, but with the solar cell at various kept at var
 
 \section{Analysis}
 
+All of the results, except for one (Figure~\ref{plot:d50}), have a current spike as the voltage across the cell tends to zero. The reason for these spikes in unknows, and therefore have been ignored. We will instead consider the results as if the line started off flat at $V = 0$.
+
+\subsection{Baseline}
+
+From the graph (Figure~\ref{plot:baseline}), we can deduce that with the solar cell at \SI{20.5}{\celsius}, and the light source \SI{10}{\centi\metre} away from the cell, the open circuit voltage ($V_{\textrm{OC}}$) of the cell is \SI{0.535}{\volt}, and the short circuit current ($I_{\textrm{SC}}$) is roughly \SI{12}{\milli\ampere}. From the graph, we can estimate values for maximum power of \SI{0.411}{\volt} for $V_{\textrm{mp}}$, and \SI{9.56}{\milli\ampere} for $I_{\textrm{mp}}$, giving a maximum power of $P_{\textrm{max}} = V_{\textrm{mp}} I_{\textrm{mp}} = \SI{3.93}{\milli\watt}$.
+
+\begin{equation} \label{eq:ff}
+\textrm{FF} = \frac{I_{\textrm{mp}} V_{\textrm{mp}}}{I_{\textrm{SC}} V_{\textrm{OC}}}
+\end{equation}
+
+Using equation~\ref{eq:ff}, we can calculate the fill factor of the solar cell to be 
 
 \section{Conclusion}
 
