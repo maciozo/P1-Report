@@ -256,19 +256,23 @@ From the graph (Figure~\ref{plot:baseline}), we can deduce that with the solar c
 \textrm{FF} = \frac{I_{\textrm{mp}} V_{\textrm{mp}}}{I_{\textrm{SC}} V_{\textrm{OC}}}
 \end{equation}
 
-Using equation~\ref{eq:ff}, we can calculate the fill factor of the solar cell to be 0.612. Given an exposed cell area of \SI{1}{\centi\metre\squared}, light source power density ($\rho$) of \SI{0.35}{\kilo\watt\per\metre\squared}, and a distance between the light and cell of \SI{10}{\centi\metre}, the power conversion efficiency ($\eta$) can be calculated.
+Using equation~\ref{eq:ff}, we can calculate the fill factor of the solar cell to be 0.612. Given an exposed cell area of \SI{1}{\centi\metre\squared}, and a light power density ($\rho$) of \SI{0.35}{\kilo\watt\per\metre\squared}, the power conversion efficiency ($\eta$) can be calculated.
 
 \begin{displaymath}
-P_{\textrm{in}} = \frac{\rho A}{d}
-                = \frac{(350)(\num{1e-4})}{0.1}
-                = \SI{350}{\milli\watt}
+P_{\textrm{in}} = \rho A
+                = (350)(\num{1e-4})
+                = \SI{35}{\milli\watt}
 \end{displaymath}
 
 \begin{displaymath}
 \eta = \frac{P_{\textrm{max}}}{P_{\textrm{in}}}
-     = \frac{3.93}{350}
-     = 1.12\%
+     = \frac{3.93}{35}
+     = 11.2\%
 \end{displaymath}
+
+This value is significantly lower than the 16.60\% quoted by the solar cell's datasheet~\cite[Appendix~B]{labNotes}.
+
+\section{Discussion}
 
 \section{Conclusion}
 
