@@ -272,6 +272,53 @@ P_{\textrm{in}} = \rho A
 
 This value is significantly lower than the 16.60\% quoted by the solar cell's datasheet~\cite[Appendix~B]{labNotes}. This could be due to unideal operating conditions, such as the lamp emitting a light spectrum that is not optimal for the specific cell used. The efficiency could also have been affected by having some of the cell covered up (to expose only \SI{1}{\centi\metre}). There could have also been some dust or dirt on the cell or lamp. The datasheet does not specify the temperature at which its values were calculated, so they could have been based on measurements made at a much lower temperature.
 
+\subsection{Varying light intensity}
+By measuring the IV characteristics of the cell at various light intensities and using an equation for an equivalent circuit representing the solar cell (equation~\ref{eq:solarCell}), we can obtain values for the dark saturation current ($I_0$) and the ideality factor ($n$).
+
+\begin{equation} \label{eq:solarCell}
+I = I_L - I_0 \left( \exp{\left(\frac{qV}{nkT}\right)} - 1 \right)
+\end{equation}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width = 0.5\textwidth,
+        height = 0.2\textheight,
+        xlabel = {$V_{\mathrm{OC}}$},
+        x unit = \si{\volt},
+        ylabel = {$\ln{\left(I_{\mathrm{SC}}\right)}$},
+        grid = both
+        ]
+        \addplot table[x = Voc, y = lnIsc, col sep = comma]{./tables/2b.csv};
+    \end{axis}
+\end{tikzpicture}
+\caption{Plot of the natural logarithm of the short circuit current against a varying open circuit voltage.}
+\label{plot:2b}
+\end{figure}
+
+\begin{equation} \label{eq:sc}
+\textrm{At short circuit, }
+V = 0 \implies I_{\mathrm{SC}} = I_{\mathrm{L}}
+\end{equation}
+
+\begin{equation} \label{eq:oc}
+\textrm{At open circuit, }
+I = 0 \implies I_{\mathrm{L}} = I_0 \left(\exp{\left(\frac{qV_{\mathrm{OC}}}{nkT}\right)} - 1 \right)
+\end{equation}
+
+Equating \ref{eq:sc} and \ref{eq:oc}, and after some manupulation
+
+\begin{equation} \label{eq:intensityGradient}
+\ln{I_{\mathrm{SC}}} = \frac{q}{nkT} V_{\mathrm{OC}} + \ln{I_0}
+\end{equation}
+
+Which is of the form $y = mx + c$. Using linear regression, we can find approximate values. $\frac{q}{nkT} \approx 15.72$, $\ln{(I_0)} \approx -12.87$. Therefore $I_0 \approx \SI{2.57}{\micro\ampere}$.
+
+\begin{displaymath}
+n \approx \frac{q}{15.72(kT)} \approx \frac{\num{1.602e-19}}{15.72(\num{1.381e-23})(293.65)} \approx 2.51
+\end{displaymath}
+
 \section{Discussion}
 
 \section{Conclusion}
