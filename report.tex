@@ -65,7 +65,7 @@ Three experiments were carried out to measure the IV characteristics of the sola
 
 The second experiment measured the output voltage of the solar cell at varying light intensities and series resistances. It was hypothesised that an increase in light intensity would increase the voltage across the cell. The intensity was varied by adjusting the distance between the light source and the cell.
 
-The third experiment measured the output voltage of the solar cell at varying temperatures. The hypothesis was that as the temperature of the cell was increased, its output voltage would decrease, as shown by equation~\ref{eq:V_OC}. Increasing the temperature, $T$, would decrease the bandgap energy of the semiconductor, and the intrinsic carrier concentration, $n_{\textrm{i}}$, which would increase the saturation current, $I_0$, decreasing the open circuit voltage, $V_{\textrm{OC}}$.
+The third experiment measured the output voltage of the solar cell at varying temperatures. The hypothesis was that as the temperature of the cell was increased, its output voltage would decrease, as shown by equation~\ref{eq:V_OC}. Increasing the temperature, $T$, would decrease the bandgap energy of the semiconductor, and the intrinsic carrier concentration, $n_{\textrm{i}}$, which would increase the saturation current, $I_0$, decreasing the open circuit voltage, $V_{\textrm{OC}}$~\cite{pveTemperature}.
 
 \begin{equation} \label{eq:V_OC}
 V_{OC} = \frac{nkT}{q}\ln{\left(\frac{I_L}{I_0} + 1\right)}
@@ -75,13 +75,14 @@ V_{OC} = \frac{nkT}{q}\ln{\left(\frac{I_L}{I_0} + 1\right)}
 \section{Results}
 \subsection{Baseline data}
 
-This was the simple experiment that involved measuring the voltage across a varying resistance. The light source was fixed at \SI{10}{\centi\metre}, and the cell was kept at a temperature of \SI{20.5}{\celsius}.
+This was the simple experiment that involved measuring the voltage across a varying resistance. The light source was fixed at \SI{10}{\centi\metre}, and the cell was kept at a temperature of \SI{20.5}{\celsius}. Refer to figure~\ref{plot:baseline}.
 
 \begin{figure}[h]
+\centering
 \begin{tikzpicture}
     \begin{axis}[
-        width = \textwidth,
-        height = 0.4\textheight,
+        width = 0.5\textwidth,
+        height = 0.2\textheight,
         xlabel = {Voltage},
                 x unit = \si{\volt},
                 ylabel = {Current},
@@ -97,15 +98,15 @@ This was the simple experiment that involved measuring the voltage across a vary
 
 \subsection{Varying light intensity}
 
-The above experiment was repeated, but at various light intensities. The intensity was varied by adjusting the distance between the light source and the solar cell.
+The above experiment was repeated, but at various light intensities. The intensity was varied by adjusting the distance between the light source and the solar cell. Refer to figure~\ref{plot:distances}.
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
     \subfloat[Subfigure 1 list of figures text][Light \SI{20}{\centi\metre} from cell (Appendix~\ref{dat:d20}).]{
         \begin{tikzpicture}
             \begin{axis}[
                 width = 0.5\textwidth,
-                height = 0.3\textheight,
+                height = 0.2\textheight,
                 xlabel = {Voltage},
                 x unit = \si{\volt},
                 ylabel = {Current},
@@ -121,7 +122,7 @@ The above experiment was repeated, but at various light intensities. The intensi
         \begin{tikzpicture}
             \begin{axis}[
                 width = 0.5\textwidth,
-                height = 0.3\textheight,
+                height = 0.2\textheight,
                 xlabel = {Voltage},
                 x unit = \si{\volt},
                 ylabel = {Current},
@@ -138,7 +139,7 @@ The above experiment was repeated, but at various light intensities. The intensi
         \begin{tikzpicture}
             \begin{axis}[
                 width = 0.5\textwidth,
-                height = 0.3\textheight,
+                height = 0.2\textheight,
                 xlabel = {Voltage},
                 x unit = \si{\volt},
                 ylabel = {Current},
@@ -154,7 +155,7 @@ The above experiment was repeated, but at various light intensities. The intensi
         \begin{tikzpicture}
             \begin{axis}[
                 width = 0.5\textwidth,
-                height = 0.3\textheight,
+                height = 0.2\textheight,
                 xlabel = {Voltage},
                 x unit = \si{\volt},
                 ylabel = {Current},
@@ -171,15 +172,15 @@ The above experiment was repeated, but at various light intensities. The intensi
 \end{figure}
 
 \subsection{Varying cell temperature}
-The baseline experiment repeated, but with the solar cell at various kept at various temperatures.
+The baseline experiment repeated, but with the solar cell at various kept at various temperatures. Refer to figure~\ref{plot:temperatures}.
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
     \subfloat[Subfigure 1 list of figures text][Cell at \SI{25}{\celsius} (Appendix~\ref{dat:t25}).]{
         \begin{tikzpicture}
             \begin{axis}[
                 width = 0.5\textwidth,
-                height = 0.3\textheight,
+                height = 0.2\textheight,
                 xlabel = {Voltage},
                 x unit = \si{\volt},
                 ylabel = {Current},
@@ -195,7 +196,7 @@ The baseline experiment repeated, but with the solar cell at various kept at var
         \begin{tikzpicture}
             \begin{axis}[
                 width = 0.5\textwidth,
-                height = 0.3\textheight,
+                height = 0.2\textheight,
                 xlabel = {Voltage},
                 x unit = \si{\volt},
                 ylabel = {Current},
@@ -212,7 +213,7 @@ The baseline experiment repeated, but with the solar cell at various kept at var
         \begin{tikzpicture}
             \begin{axis}[
                 width = 0.5\textwidth,
-                height = 0.3\textheight,
+                height = 0.2\textheight,
                 xlabel = {Voltage},
                 x unit = \si{\volt},
                 ylabel = {Current},
@@ -228,7 +229,7 @@ The baseline experiment repeated, but with the solar cell at various kept at var
         \begin{tikzpicture}
             \begin{axis}[
                 width = 0.5\textwidth,
-                height = 0.3\textheight,
+                height = 0.2\textheight,
                 xlabel = {Voltage},
                 x unit = \si{\volt},
                 ylabel = {Current},
@@ -273,7 +274,7 @@ P_{\textrm{in}} = \rho A
 This value is significantly lower than the 16.60\% quoted by the solar cell's datasheet~\cite[Appendix~B]{labNotes}. This could be due to unideal operating conditions, such as the lamp emitting a light spectrum that is not optimal for the specific cell used. The efficiency could also have been affected by having some of the cell covered up (to expose only \SI{1}{\centi\metre}). There could have also been some dust or dirt on the cell or lamp. The datasheet does not specify the temperature at which its values were calculated, so they could have been based on measurements made at a much lower temperature.
 
 \subsection{Varying light intensity}
-By measuring the IV characteristics of the cell at various light intensities and using an equation for an equivalent circuit representing the solar cell (equation~\ref{eq:solarCell}), we can obtain values for the dark saturation current ($I_0$) and the ideality factor ($n$).
+By measuring the IV characteristics of the cell at various light intensities and using an equation for an equivalent circuit representing the solar cell (equation~\ref{eq:solarCell}), we can obtain values for the dark saturation current ($I_0$) and the ideality factor ($n$). From the graphs in figure~\ref{fig:temperatures}, it is shown that increasing the distance between the light and the cell decreases both the open circuit voltage, and the closed circuit current.
 
 \begin{equation} \label{eq:solarCell}
 I = I_L - I_0 \left( \exp{\left(\frac{qV}{nkT}\right)} - 1 \right)
@@ -307,10 +308,10 @@ V = 0 \implies I_{\mathrm{SC}} = I_{\mathrm{L}}
 I = 0 \implies I_{\mathrm{L}} = I_0 \left(\exp{\left(\frac{qV_{\mathrm{OC}}}{nkT}\right)} - 1 \right)
 \end{equation}
 
-Equating \ref{eq:sc} and \ref{eq:oc}, and after some manupulation
+Equating \ref{eq:sc} and \ref{eq:oc}, and after some manipulation
 
 \begin{equation} \label{eq:intensityGradient}
-\ln{I_{\mathrm{SC}}} = \frac{q}{nkT} V_{\mathrm{OC}} + \ln{I_0}
+\ln{\left(I_{\mathrm{SC}}\right)} = \frac{q}{nkT} V_{\mathrm{OC}} + \ln{(I_0)}
 \end{equation}
 
 Which is of the form $y = mx + c$. Using linear regression, we can find approximate values. $\frac{q}{nkT} \approx 15.72$, $\ln{(I_0)} \approx -12.87$. Therefore $I_0 \approx \SI{2.57}{\micro\ampere}$.
@@ -319,13 +320,40 @@ Which is of the form $y = mx + c$. Using linear regression, we can find approxim
 n \approx \frac{q}{15.72(kT)} \approx \frac{\num{1.602e-19}}{15.72(\num{1.381e-23})(293.65)} \approx 2.51
 \end{displaymath}
 
+\subsection{Varying cell temperature}
+As per the hypothesis and equation~\ref{eq:V_OC}, increasing the temperature of the cell decreases its open circuit voltage.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width = 0.5\textwidth,
+        height = 0.2\textheight,
+        xlabel = {Temperature},
+        x unit = \si{\celsius},
+        ylabel = {Max Power},
+        y unit = \si{\watt},
+        grid = both
+        ]
+        \addplot table[x = Temperature, y = Power, col sep = comma]{./tables/3b.csv};
+        \addplot [domain = 17:43, samples = 300, dashed]{0.00624370093193090000 * (x ^ (-0.15383077938430200000))};
+    \end{axis}
+\end{tikzpicture}
+\caption{Graph comparing the maximum power output of the cell against its temperature, with trendline.}
+\label{plot:tempPower}
+\end{figure}
+
+The trendline in figure~\ref{plot:tempPower} was estimated to be of the form $P_{\textrm{max}} = 0.0062437009319309(T-273.15)-0.153830779384302$.
+
+
 \section{Discussion}
+The results indicate that it is beneficial to have solar cells as close as possible to their source of light. But this comes at the expense of having a lower maximum power. If the cell was to be installed in an extremely sunny location, then assuming a worst case scenario of the cell being heated to \SI{120}{\celsius}, its maximum power output would be \SI{2.99}{\milli\watt} - approximately 76\% of the maximum power at \SI{20.5}{\celsius}. Whilst this is a significant drop in performance, the increase in incident power should be taken in to account. While for example Europe may be much cooler on average than Australia, most areas only receive around \SI{1400}{\kilo\watt\hour\per\metre\squared}~\cite{solarMapEur}, as opposed to most areas of Australia getting over \SI{2000}{\kilo\watt\hour\per\metre\squared}~\cite{solarMapAus}, most of which are very sparsely populated~\cite{ausPopulationMap}.
 
 \section{Conclusion}
-
+As expected, increasing the intensity of the light 
 
 \section{Evaluation}
-
+Could've done some stuff better.
 
 \begin{appendices}
     \label{appendix}
